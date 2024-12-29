@@ -1,0 +1,98 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    background: #121212;
+    color: #f0f0f0;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Canvas */
+pre {
+    margin: 0;
+    font-family: monospace;
+    white-space: pre;
+    line-height: 1;
+}
+
+/* Sliders */
+.controls {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #000000cc;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    transition: bottom 0.3s ease-in-out;
+    z-index: 1000;
+}
+.controls input[type="range"] {
+    width: 150px;
+    height: 8px;
+    background: #444;
+    border-radius: 20px;
+    appearance: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.controls label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f0f0f0;
+    text-align: center;
+}
+.controls div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Menu */
+.menu-toggle {
+    position: fixed;
+    bottom: 10px;
+    background: #000000cc;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: 0 4px 15px #00000066;
+    transition: 0.3s ease;
+    z-index: 1001;
+}
+.menu-toggle:hover {
+    background: #000000aa;
+}
+.menu-toggle:active {
+    transform: scale(0.95) translateX(unset);
+}
+.menu-toggle img {
+    width: 24px;
+    height: auto;
+}
+
+/* Mobile */
+@media (min-width: 768px) {
+    .menu-toggle {
+        right: 20px;
+        left: unset;
+    }
+}
+@media (max-width: 767px) {
+    .menu-toggle {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
