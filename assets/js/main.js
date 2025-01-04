@@ -1,7 +1,7 @@
-const canvas = document.getElementById("canvas");
-const speedSlider = document.getElementById("speedSlider");
-const sizeSlider = document.getElementById("sizeSlider");
-const controls = document.querySelector(".controls");
+const canvas = document.getElementById('canvas');
+const speedSlider = document.getElementById('speedSlider');
+const sizeSlider = document.getElementById('sizeSlider');
+const controls = document.querySelector('.controls');
 
 const thetaSpacing = 0.07, phiSpacing = 0.02;
 const R1 = 0.5, R2 = 1, K2 = 5;
@@ -12,11 +12,11 @@ let speed = parseFloat(speedSlider.value);
 let size = parseFloat(sizeSlider.value);
 
 /* Event listeners */
-speedSlider.addEventListener("input", () => {
+speedSlider.addEventListener('input', () => {
     speed = parseFloat(speedSlider.value);
 });
 
-sizeSlider.addEventListener("input", () => {
+sizeSlider.addEventListener('input', () => {
     size = parseFloat(sizeSlider.value);
     console.log(size);
     resizeCanvas();
@@ -31,12 +31,12 @@ function resizeCanvas() {
 }
 
 /* Resize canvas on window resize */
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 /* Render frame */
 function renderFrame(A, B) {
-    const output = Array(screenHeight).fill("").map(() => Array(screenWidth).fill(" "));
+    const output = Array(screenHeight).fill('').map(() => Array(screenWidth).fill(' '));
     const zbuffer = Array(screenHeight).fill(0).map(() => Array(screenWidth).fill(0));
 
     const cosA = Math.cos(A), sinA = Math.sin(A);
@@ -65,14 +65,14 @@ function renderFrame(A, B) {
             if (ooz > zbuffer[yp]?.[xp]) {
             zbuffer[yp][xp] = ooz;
             const luminanceIndex = Math.floor(L * 8);
-            const luminanceChars = ".,-~:;=!*#$@";
+            const luminanceChars = '.,-~:;=!*#$@';
             output[yp][xp] = luminanceChars[luminanceIndex];
             }
         }
         }
     }
 
-    canvas.textContent = output.map(row => row.join("")).join("\n");
+    canvas.textContent = output.map(row => row.join('')).join('\n');
 }
 
 /* Animation loop */
@@ -86,9 +86,9 @@ animate();
 
 /* Toggle menu */
 function toggleMenu() {
-    if (controls.style.bottom === "0px") {
-        controls.style.bottom = "-100px";
+    if (controls.style.bottom === '0px') {
+        controls.style.bottom = '-100px';
     } else {
-        controls.style.bottom = "0";
+        controls.style.bottom = '0';
     }
 }
